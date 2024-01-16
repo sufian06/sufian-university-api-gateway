@@ -3,7 +3,7 @@ import { IGenericResponse } from '../../../interfaces/common';
 import { CoreService } from '../../../shared/axios';
 
 const insertIntoDB = async (req: Request): Promise<IGenericResponse> => {
-  const response: IGenericResponse = await CoreService.post(`/rooms`, req.body, {
+  const response: IGenericResponse = await CoreService.post(`/courses`, req.body, {
     headers: {
       Authorization: req.headers.authorization
     }
@@ -12,7 +12,7 @@ const insertIntoDB = async (req: Request): Promise<IGenericResponse> => {
 };
 
 const getAllFromDB = async (req: Request): Promise<IGenericResponse> => {
-  const response: IGenericResponse = await CoreService.get(`/rooms`, {
+  const response: IGenericResponse = await CoreService.get(`/courses`, {
     params: req.query,
     headers: {
       Authorization: req.headers.authorization
@@ -23,7 +23,7 @@ const getAllFromDB = async (req: Request): Promise<IGenericResponse> => {
 
 const getByIdFromDB = async (req: Request): Promise<IGenericResponse> => {
   const { id } = req.params;
-  const response: IGenericResponse = await CoreService.get(`/rooms/${id}`, {
+  const response: IGenericResponse = await CoreService.get(`/courses/${id}`, {
     headers: {
       Authorization: req.headers.authorization
     }
@@ -33,7 +33,7 @@ const getByIdFromDB = async (req: Request): Promise<IGenericResponse> => {
 
 const updateOneInDB = async (req: Request): Promise<IGenericResponse> => {
   const { id } = req.params;
-  const response: IGenericResponse = await CoreService.patch(`/rooms/${id}`, req.body, {
+  const response: IGenericResponse = await CoreService.patch(`/courses/${id}`, req.body, {
     headers: {
       Authorization: req.headers.authorization
     }
@@ -43,7 +43,7 @@ const updateOneInDB = async (req: Request): Promise<IGenericResponse> => {
 
 const deleteByIdFromDB = async (req: Request): Promise<IGenericResponse> => {
   const { id } = req.params;
-  const response: IGenericResponse = await CoreService.delete(`/rooms/${id}`, {
+  const response: IGenericResponse = await CoreService.delete(`/courses/${id}`, {
     headers: {
       Authorization: req.headers.authorization
     }
@@ -51,7 +51,7 @@ const deleteByIdFromDB = async (req: Request): Promise<IGenericResponse> => {
   return response;
 };
 
-export const RoomService = {
+export const CourseService = {
   insertIntoDB,
   getAllFromDB,
   getByIdFromDB,

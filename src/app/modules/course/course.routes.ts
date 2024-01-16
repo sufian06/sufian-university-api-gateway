@@ -2,32 +2,33 @@ import express from 'express';
 import { ENUM_USER_ROLE } from '../../../enums/user';
 import auth from '../../middlewares/auth';
 import validateRequest from '../../middlewares/validateRequest';
-import { RoomController } from './room.controller';
-import { RoomValidation } from './room.validation';
+import { CourseController } from './course.controller';
+import { CourseValidation } from './course.validation';
+
 
 const router = express.Router();
 
-router.get('/', RoomController.getAllFromDB);
-router.get('/:id', RoomController.getByIdFromDB);
+router.get('/', CourseController.getAllFromDB);
+router.get('/:id', CourseController.getByIdFromDB);
 
 router.post(
   '/',
-  validateRequest(RoomValidation.create),
+  validateRequest(CourseValidation.create),
   auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
-  RoomController.insertIntoDB
+  CourseController.insertIntoDB
 );
 
 router.patch(
   '/:id',
-  validateRequest(RoomValidation.update),
+  validateRequest(CourseValidation.update),
   auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
-  RoomController.updateOneInDB
+  CourseController.updateOneInDB
 );
 
 router.delete(
   '/:id',
   auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
-  RoomController.deleteByIdFromDB
+  CourseController.deleteByIdFromDB
 );
 
-export const roomRoutes = router;
+export const courseRoutes = router;

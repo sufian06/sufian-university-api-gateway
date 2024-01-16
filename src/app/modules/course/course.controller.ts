@@ -1,10 +1,11 @@
 import { NextFunction, Request, Response } from 'express';
 import sendResponse from '../../../shared/response';
-import { RoomService } from './room.service';
+import { CourseService } from './course.service';
+
 
 const insertIntoDB = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const result = await RoomService.insertIntoDB(req);
+    const result = await CourseService.insertIntoDB(req);
     sendResponse(res, result);
   } catch (error) {
     next(error);
@@ -13,7 +14,7 @@ const insertIntoDB = async (req: Request, res: Response, next: NextFunction) => 
 
 const getAllFromDB = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const result = await RoomService.getAllFromDB(req);
+    const result = await CourseService.getAllFromDB(req);
     sendResponse(res, result);
   } catch (error) {
     next(error);
@@ -22,7 +23,7 @@ const getAllFromDB = async (req: Request, res: Response, next: NextFunction) => 
 
 const getByIdFromDB = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const result = await RoomService.getByIdFromDB(req);
+    const result = await CourseService.getByIdFromDB(req);
     sendResponse(res, result);
   } catch (error) {
     next(error);
@@ -31,7 +32,7 @@ const getByIdFromDB = async (req: Request, res: Response, next: NextFunction) =>
 
 const updateOneInDB = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const result = await RoomService.updateOneInDB(req);
+    const result = await CourseService.updateOneInDB(req);
     sendResponse(res, result);
   } catch (error) {
     next(error);
@@ -40,14 +41,14 @@ const updateOneInDB = async (req: Request, res: Response, next: NextFunction) =>
 
 const deleteByIdFromDB = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const result = await RoomService.deleteByIdFromDB(req);
+    const result = await CourseService.deleteByIdFromDB(req);
     sendResponse(res, result);
   } catch (error) {
     next(error);
   }
 };
 
-export const RoomController = {
+export const CourseController = {
   insertIntoDB,
   getAllFromDB,
   getByIdFromDB,
