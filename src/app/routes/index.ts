@@ -13,6 +13,7 @@ import { offeredCourseClassScheduleRoutes } from '../modules/offeredCourseClassS
 import { offeredCourseSectionRoutes } from '../modules/offeredCourseSection/offeredCourseSection.routes';
 import { roomRoutes } from '../modules/room/room.routes';
 import { semesterRegistrationRoutes } from '../modules/semesterRegistration/semesterRegistration.routes';
+import { studentRoutes } from '../modules/student/student.routes';
 import { studentEnrolledCourseRoutes } from '../modules/studentEnrolledCourse/studentEnrolledCourse.routes';
 import { studentEnrolledCourseMarkRoutes } from '../modules/studentEnrolledCourseMark/studentEnrolledCourseMark.routes';
 import { studentSemesterPaymentRoutes } from '../modules/studentSemesterPayment/studentSemesterPayment.routes';
@@ -30,8 +31,16 @@ const moduleRoutes = [
     routes: userRoutes
   },
   {
+    path: '/admins',
+    routes: adminRoutes
+  },
+  {
     path: '/faculties',
     routes: facultyRoutes
+  },
+  {
+    path: '/students',
+    routes: studentRoutes
   },
   {
     path: '/academic-semesters',
@@ -85,10 +94,7 @@ const moduleRoutes = [
     path: '/student-semester-payments',
     routes: studentSemesterPaymentRoutes
   },
-  {
-    path: '/admins',
-    routes: adminRoutes
-  },
+
   {
     path: '/management-departments',
     routes: managementDepartmentRoutes
